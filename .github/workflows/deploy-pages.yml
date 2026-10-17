@@ -32,6 +32,11 @@ jobs:
 
       - name: Construire le site statique
         run: npm run build:github
+        env:
+          BASE_PATH: /phenix-sts-site
+
+      - name: Verifier le dossier out
+        run: test -f out/index.html
 
       - name: Ajouter .nojekyll
         run: touch out/.nojekyll
